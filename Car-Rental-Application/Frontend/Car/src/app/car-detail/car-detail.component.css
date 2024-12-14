@@ -1,0 +1,27 @@
+.card {
+    min-height: 480px;
+  }
+  
+  .card img {
+    padding: 10px;
+    height: 450px;
+  }
+  
+  .card-img-wrapper {
+    height: 250px;
+  }
+  
+  .ngx-gallery
+  {
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
+  .card-title{
+    text-align: center;
+    font-size: 24px;
+  }
+
+  .bold-label{
+    font-weight:bold;
+  }

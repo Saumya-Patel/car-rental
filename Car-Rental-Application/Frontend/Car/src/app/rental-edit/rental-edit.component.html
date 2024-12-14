@@ -1,0 +1,53 @@
+<div class="container mt-3 p-4">
+    <h2>Edit agreement</h2>
+    <hr>
+
+    <div class="row" *ngIf="rentalData">
+        <div class="col-md-6">
+            <img src="{{rentalData.imgUrl}}" class="img-fluid" alt="Car Image">
+        </div>
+        <div class="col-md-6">
+            <div class="card  shadow p-3 mb-5 bg-white rounded">
+                <div class="card-body">
+                    <h5 class="card-title bold-label">Car Details</h5>
+                    <p class="card-text bold-label">Maker: {{rentalData.maker}}</p>
+                    <p class="card-text bold-label">Model:{{rentalData.model}} </p>
+                    <p class="card-text bold-label">Rental Price per Day:{{rentalData.rentalPrice}} $</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Form -->
+    <div class="card">
+        <div class="card-header">
+            Rental Details
+        </div>
+        <div class="card-body ">
+            <form class="form" [formGroup]="editRentalForm" #form="ngForm" (ngSubmit)="onSubmit()">
+                <div class="form-row">
+                    <div class="form-group col-md-6 d-flex mb-2">
+                        <label for="startDate">Start Date:</label>
+                        <input type="date" class="form-control" id="startDate" formControlName="startDate">
+                    </div>
+                    <div class="form-group col-md-6 d-flex mb-2">
+                        <label for="endDate">End Date:</label>
+                        <input type="date" class="form-control" id="endDate" formControlName="endDate"
+                            [min]="startDateVal" (change)="calculateTotal($event)" required>
+                    </div>
+                    <div class="form-group col-md-6 d-flex mb-2">
+                        <p>Total No of Days: {{totalDays}}</p>
+                    </div>
+                    <div class="form-group col-md-6 d-flex mb-2">
+                        <p>Total Price: {{totalPrice}}</p>
+                    </div>
+                </div>
+                <div class="mt-2 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-primary mx-3" id="saveButton">Save</button>
+
+                    <button type="button" class="btn btn-secondary" id="backButton" (click)="onBack()">Back</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

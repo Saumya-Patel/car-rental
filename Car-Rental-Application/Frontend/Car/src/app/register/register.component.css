@@ -1,0 +1,12 @@
+.main{
+    height: 75dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+}
+
+mat-card-content{
+    max-height: 400px;
+    overflow: auto;
+}

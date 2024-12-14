@@ -1,0 +1,55 @@
+<div class="form-container">
+    <form [formGroup]="form">
+        <h1>Rental Form</h1>
+        <mat-form-field>
+            <input matInput formControlName="name" placeholder="Name">
+        </mat-form-field>
+        <div *ngIf="form.get('name').invalid && form.get('name').touched" class="error-msg">
+            Name is Required and must be at least 3 Characters long
+        </div>
+        <!-- <div *ngIf="form.get('name').invalid && form.get('name').touched && form.get('name').hasError('minLength')" class="error-msg">
+            Name should be atleast 3 Characters long
+        </div>
+        <div *ngIf="form.get('name').invalid && form.get('name').touched && form.get('name').hasError('maxLength')" class="error-msg">
+            Name should not exceed 20 Characters
+        </div> -->
+        <mat-form-field>
+            <input matInput formControlName="email" placeholder="Email">
+        </mat-form-field>
+        <div *ngIf="form.get('email').invalid && form.get('email').touched" class="error-msg">
+            Email is required 
+        </div>
+        <!-- <div *ngIf="form.get('email').invalid && form.get('email').touched && form.get('email').hasError('email')" class="error-msg">
+            Please enter a valid Email
+        </div> -->
+        <mat-form-field>
+            <input matInput [matDatepicker]="startDatePicker" formControlName="startDate" placeholder="Start Date">
+            <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #startDatePicker></mat-datepicker>
+        </mat-form-field>
+        <div *ngIf="form.get('startDate').invalid && form.get('startDate').touched" class="error-msg">
+            Start Date is Required and Start Date cannot be in the past 
+        </div>
+        <!-- <div *ngIf="form.get('startDate').invalid && form.get('startDate').touched && form.get('startDate').hasError('required')" class="error-msg">
+            Start Date is Required 
+        </div> -->
+        <mat-form-field>
+            <input matInput [matDatepicker]="endDatePicker" formControlName="endDate" placeholder="Start Date">
+            <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #endDatePicker></mat-datepicker>
+        </mat-form-field>
+        <div *ngIf="form.get('endDate').invalid && form.get('endDate').touched" class="error-msg">
+            End Date is Required and End Date cannot be in the past 
+        </div>
+        <!-- <div *ngIf="form.get('endDate').invalid && form.get('endDate').touched && form.get('endDate').hasError('required')" class="error-msg">
+            End Date is Required 
+        </div> -->
+        <div class="button-container">
+            <button class="add-margin" mat-raised-button (click)="onSubmit()" [disabled]="!form.valid" >Submit</button>
+            <button mat-raised-button (click)="onCancel()">Cancel</button>
+        </div>
+    </form>
+</div>
+
+<!-- "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css" -->
+

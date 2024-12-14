@@ -1,0 +1,64 @@
+:root {
+
+    --bg-color: ;
+}
+
+.topic{
+    font-size: 21px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    color: rgb(245, 245, 245);
+    height: 10dvh;
+    position: static;
+    padding-left: 1rem;
+    justify-content: space-between;
+}
+
+.left {
+    justify-self: flex-start;
+    display: flex;
+    align-items: center;
+}
+
+.active {
+    color: white;
+}
+
+button {
+    color: var(--bg-color);
+    cursor: pointer;
+    background-color: white;
+}
+
+a {
+    margin-left: 0.5rem;
+    font-weight: bold;
+    color: var(--bg-color);
+    text-decoration: none;
+    cursor: pointer;
+    font-size: medium;
+    margin: 10px;
+}
+
+a:hover {
+    color: rgba(255, 255, 255, 0.79);
+}
+
+.right {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.info {
+    margin-right: 1%;
+}

@@ -1,0 +1,60 @@
+<div class="row shadow">
+    <div class="col-sm-8 p-0">
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img class="card-img-top" src="{{carDetail?.imgUrl}}" />
+            </div>
+        </div>
+    </div>
+    <div class="col sm-4 p-0">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title bold-label">Car Details</h5>
+
+                <p class="card-text bold-label">Maker: {{ carDetail?.maker }}
+                <p>
+
+                <p class="card-text bold-label">Car Model {{ carDetail?.model }}
+                <p></p>
+
+                <p class="card-text bold-label">Rental Price Per Day: {{ carDetail?.rentalPrice }}
+                <p>
+
+                <p class="card-text bold-label">Availablity Status: {{ carDetail?.status }}
+                <p>
+                
+                <div class="form-group">
+                    <label for="startDate">Start Date</label>
+                    <input type="text" class="form-control" id="startDate" [(ngModel)]="showStartDate"
+                    placeholder="{{showStartDate}}" disabled />
+                </div>
+
+                <div class="form-group">
+                    <label for="endDate">End Date</label>
+                    <input type="date" class="form-control" id="endDate" min="{{ minDate }}" [(ngModel)]="endDate"
+                        (ngModelChange)="calculateTotal()" />
+                </div>
+
+                <p class="mt-2">
+                    Total Days: <span id="totalDays">{{totalDays}}</span>
+                </p>
+
+                <p class="mt-2">
+                    Total Price: <span id="totalPrice">₹{{totalPrice}}</span>
+                </p>
+                <div *ngIf="totalDays!=0 && totalPrice!=0 && !role">
+                    <button class="btn btn-info mt-3" (click)="onClick()">
+                        Rent Car
+                    </button>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- <div *ngIf="isFormSubmitted">
+        <h2>Form Data</h2>
+        <p>Name:{{formData.name}}</p>
+        
+    </div>
+    <button mat-raised-button (click)="openDialog()">Rent Car</button> -->
+</div>

@@ -1,0 +1,43 @@
+<div class="container mt-4">
+    <h2 class="mb-4">Rental Agreements</h2>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Phone No</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Rental Price</th>
+            <th>Availibility Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let agreement of agreementData">
+            <td>{{agreement.name}}</td>
+            <td>{{agreement.mobile}}</td>
+            <td>{{startDateValue}}</td>
+            <td>{{endDateValue}}</td>
+            <td>{{agreement.rentalPrice}}</td>
+            <td *ngIf="isAvailable">In Stock</td>
+            <td *ngIf="isAvailable==false">Out of Stock</td>
+            <td>
+                <button mat-icon-button routerLink="/edit-rental/{{agreement.rentId}}" matTooltip="Click to Edit"
+                        class="iconbutton" color="primary">
+                        <mat-icon aria-label="Edit">edit</mat-icon>
+                    </button>
+                    <button mat-icon-button (click)="onClickDelete(agreement.rentId)"  matTooltip="Click to Delete"
+                        class="iconbutton" color="warn">
+                        <mat-icon aria-label="Delete" >delete</mat-icon>
+                    </button>
+                    <button mat-raised-button color="primary" aria-label="Return" (click)="onReturn(agreement.rentId)" *ngIf="agreement.returnReq" >Return</button>
+            </td>
+            
+          </tr>
+         
+        </tbody>
+      </table>
+    </div>
+  </div>

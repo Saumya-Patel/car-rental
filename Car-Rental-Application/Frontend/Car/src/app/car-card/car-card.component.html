@@ -1,0 +1,18 @@
+<div class="card">
+  <div class="card-img-wrapper">
+    <img class="card-img-top" src="{{car.imgUrl}}" alt="default-car" />
+
+    <ul class="list-inline text-center member-icons animate">
+      <li class="list-inline-item">
+        <button (click)="onClick()" class="btn btn-warning" routerLink="/car-detail/{{car.carId}}"><svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 48 48"><mask id="ipTPreviewOpen0"><g fill="red" stroke="#fff" stroke-linejoin="round" stroke-width="4"><path d="M24 36c11.046 0 20-12 20-12s-8.954-12-20-12S4 24 4 24s8.954 12 20 12Z"/><path d="M24 29a5 5 0 1 0 0-10a5 5 0 0 0 0 10Z"/></g></mask><path fill="red" d="M0 0h48v48H0z" mask="url(#ipTPreviewOpen0)"/></svg></button>
+        <h5>View Details</h5>
+      </li>
+      
+    </ul>
+  </div>
+  <div class="card-body p-2">
+    <h1>{{ car.maker }}</h1>
+    <h2>{{ car.model }}</h2>
+    <h3>{{ car.rentalPrice }}</h3>
+  </div>
+</div>

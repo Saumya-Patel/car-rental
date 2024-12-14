@@ -1,0 +1,64 @@
+<div class="main">
+    <mat-card style="margin-top: 5px; width: 450px;">
+        <mat-card-header>
+            <h2>Register Page</h2>
+        </mat-card-header>
+        <mat-card-content>
+            <form class="example-form" [formGroup]="registerForm" #form="ngForm" (ngSubmit)="Register()">
+                
+                <mat-form-field style="width: 90%;" class="mt-2">
+                    <mat-label>Full Name</mat-label>
+                    <input matInput type="text" formControlName="FullName">
+                    <mat-error
+                        *ngIf="registerForm.controls.FullName.invalid &&(registerForm.controls.FullName.dirty || registerForm.controls.FullName.touched || form.submitted )">
+                     below 50 char and  alphabet only</mat-error>
+                </mat-form-field>
+
+                <mat-form-field style="width: 90%;" class="mt-2">
+                    <mat-label>Address</mat-label>
+                    <input matInput type="text" formControlName="Address">
+                    <mat-error
+                        *ngIf="registerForm.controls.Address.invalid &&(registerForm.controls.Address.dirty || registerForm.controls.Address.touched || form.submitted )">
+                     below 50 char and  alphabet only</mat-error>
+                </mat-form-field>
+                
+                <mat-form-field style="width: 90%;" class="mt-2">
+                    <mat-label>Email ID</mat-label>
+                    <input matInput type="email" formControlName="EmailId">
+                    <mat-error
+                        *ngIf="registerForm.controls.EmailId.invalid &&(registerForm.controls.EmailId.dirty || registerForm.controls.EmailId.touched || form.submitted )">
+                        Entered email is not valid</mat-error>
+                </mat-form-field>
+                
+                <mat-form-field style="width: 90%;" class="mt-2">
+                    <mat-label>Phone Number</mat-label>
+                    <input matInput type="text" formControlName="PhoneNumber">
+                    <mat-error
+                        *ngIf="registerForm.controls.PhoneNumber.invalid &&(registerForm.controls.PhoneNumber.dirty || registerForm.controls.PhoneNumber.touched || form.submitted )">
+                        Entered length 10</mat-error>
+                </mat-form-field>
+                
+                <mat-form-field style="width: 90%;" class="mt-2">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" formControlName="Password">
+                    <mat-error
+                        *ngIf="registerForm.controls.Password.invalid &&(registerForm.controls.Password.dirty || registerForm.controls.Password.touched || form.submitted )">
+                        Entered length 4 to 15</mat-error>
+                </mat-form-field>
+                
+                <mat-form-field style="width: 90%;" class="mt-2">
+                    <mat-label>Confirm Password</mat-label>
+                    <input matInput type="password" formControlName="ConfirmPassword">
+                    <mat-error
+                        *ngIf="registerForm.controls.Password.invalid &&(registerForm.controls.Password.dirty || registerForm.controls.Password.touched || form.submitted )">
+                        Entered length 4 to 15</mat-error>
+                </mat-form-field>
+
+                <div>
+                    <button type="submit" class="btn btn-primary">Sign up</button>
+                    <button style="margin-left: 25px;" type="reset" class="btn btn-danger">Clear</button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</div>

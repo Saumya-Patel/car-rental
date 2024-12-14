@@ -1,0 +1,28 @@
+<div class="header bg-secondary">
+  <div class="left" *ngIf="customerName == null">
+    <a routerLink="/home" [routerLinkActive]="['active']" class="topic">Car Rental</a>
+    <a routerLink="/home/login" [routerLinkActive]="['active']">Login</a>
+    <br />
+    <a routerLink="/home/register" [routerLinkActive]="['active']">Register</a>
+  </div>
+
+  <div class="right" *ngIf="customerName">
+    <a routerLink="/home" [routerLinkActive]="['active']" class="topic">Car Rental</a>
+
+    <div class="actions" *ngIf="role">
+      <a routerLink="/" class="nav-link">Cars</a>
+      <a routerLink="/admin/all-rental" class="nav-link">Rentals</a>
+    </div>
+    
+    <div class="actions" *ngIf="!role">
+      <a routerLink="/user-rental/{{customerId}}">Rental Agreements</a>
+    </div>
+
+  </div>
+  <div class="info" *ngIf="customerName">
+    <b> {{ customerName }}</b>
+    <a style="margin-left: 15px" (click)="LogoutButton()">
+      Logout
+    </a>
+  </div>
+</div>
